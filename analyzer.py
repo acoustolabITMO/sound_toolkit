@@ -75,7 +75,7 @@ def get_tl(filename_signal, filename_reference,
 
     # TODO: add error handler
     if np.array_equal(signal_frequencies, reference_frequencies):
-        transmission_loss = 20 * np.log(
+        transmission_loss = 20 * np.log10(
             np.divide(signal_amplitudes, reference_amplitudes))
     else:
         transmission_loss = []
@@ -104,7 +104,7 @@ def get_tl(filename_signal, filename_reference,
     plt.axhline(y=0, color='k', linestyle='--', linewidth=1)
     plt.ylabel('Transmission loss')
     plt.xlabel('Frequency, Hz')
-    plt.legend(['20 log(signal/reference)'])
+    plt.legend(['20 log10(signal/reference)'])
     plt.xlim(0)
     if is_filtered:
         plt.xlim([filter_params['f_low'], filter_params['f_high']])
